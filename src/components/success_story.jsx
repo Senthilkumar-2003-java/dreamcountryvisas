@@ -1,0 +1,45 @@
+import { Link } from 'react-router-dom';
+import { STATS } from '../data.js';
+import { Icon } from './Icons.jsx';
+
+export default function SuccessStory() {
+  return (
+    <section className="section" id="about">
+      <div className="container about-box">
+        <div className="about-intro">
+          <p className="section-tag maroon-tag">SUCCESS STORY</p>
+          <h2>
+            Turning Visa Dreams
+            <br />
+            Into Reality
+          </h2>
+          <p className="about-text">
+            From citizenship and residency to real estate and global mobility — we've guided thousands of families to a new life abroad with honesty, expertise and care.
+          </p>
+          <Link to="/about" className="link-more">
+            Learn More About Us <Icon name="arrow" size={14} />
+          </Link>
+        </div>
+
+        <div className="stats-grid">
+          {STATS.map((s) => (
+            <div className="stat-card" key={s.label}>
+              <span className="stat-icon-wrap">
+                <Icon name={s.icon} size={24} />
+              </span>
+              <span className="stat-value">{s.value}</span>
+              <span className="stat-label">{s.label}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="about-globe">
+          <div className="globe-ambient-circle" />
+          <div className="globe-img-wrap">
+            <img src="/landing-img/Glob.webp" alt="Global network" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

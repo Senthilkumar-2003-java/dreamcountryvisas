@@ -1,0 +1,27 @@
+import { Router } from 'express';
+import { signAdminToken } from '../middleware/auth.js';
+import { loginLimiter } from '../middleware/rateLimit.js';
+
+const router = Router();
+
+// POST /api/auth/login — single hardcoded admin account, credentials in .env
+router.post('/login', loginLimiter, (req, res) => {
+  const { email, password } = req.body || {};
+
+  const adminEmail = process.env.ADMIN_EMAIL || '';
+  const adminPassword = process.env.ADMIN_PASSWORD || '';
+
+  if (
+    typeof email !== 'string' || typeof password !== 'string' ||
+    !email.trim() || !password ||
+    email.trim().toLowerCase() !== adminEmail.trim().toLowerCase() ||
+    password !== adminPassword
+  ) {
+    return res.status(401).json({ ok: false, error: 'Invalid email or password.' });
+  }
+
+  const token = signAdminToken(adminEmail);
+  res.json({ ok: true, token });
+});
+
+export default router;

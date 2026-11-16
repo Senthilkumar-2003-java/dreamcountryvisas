@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Disallow: /login
+Disallow: /admin
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /wp-json/
+Disallow: /wp-login.php
+Disallow: /*.php$
+Disallow: /author/
+Disallow: /comments/
+Disallow: /cdn-cgi/
+
+Sitemap: https://dreamcountryvisas.com/sitemap.xml

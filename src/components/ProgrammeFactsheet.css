@@ -1,0 +1,44 @@
+.programme-factsheet p + p,
+.programme-factsheet p + dl,
+.programme-factsheet p + ul,
+.programme-factsheet p + ol {
+  margin-top: 16px;
+}
+
+.programme-factsheet-table {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.programme-factsheet-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 16px;
+  padding: 16px;
+  overflow-wrap: anywhere;
+}
+
+.programme-factsheet-row + .programme-factsheet-row {
+  border-top: 1px solid var(--line);
+}
+
+.programme-factsheet-row:nth-child(odd) {
+  background: var(--bg-soft);
+}
+
+.programme-factsheet-row dt {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.programme-factsheet-row dd {
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .programme-factsheet-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
+}
